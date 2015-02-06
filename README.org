@@ -1,21 +1,21 @@
 
-# Awklike
+* Awklike
 
-This is an awk-like text processor.
+Awk-like text processor.
 
-## Usage
+** Usage
 
 ```lisp
-#!/usr/local/bin/ros -s awklike
-
 (awk BEGIN
   (format t "hello!"))
 
-(awk /regexp/
+(awk |regexp|
   (princ $1))
 ```
 
-## Dependencies
+See example.lisp
+
+** Dependencies
 This library is at least tested on implementation listed below:
 
 + SBCL 1.2.1 on X86-64 Linux 3.13.0-45-generic (author's environment)
@@ -31,18 +31,9 @@ Also, it depends on the following libraries:
 + cl-ppcre by ** :
     Perl-compatible regular expression library
 
-## Installation
-
-## Author
-
-* Masataro Asai (guicho2.71828@gmail.com)
-
-## Copyright
+** Author
 
 Copyright (c) 2015 Masataro Asai (guicho2.71828@gmail.com)
 
-# License
-
 Licensed under the LLGPL License.
-
 
