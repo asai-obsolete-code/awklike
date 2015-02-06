@@ -5,15 +5,15 @@ Awk-like text processor.
 
 ** Usage
 
-```lisp
+#+BEGIN_SRC lisp
 (awk BEGIN
   (format t "hello!"))
 
 (awk |regexp|
   (princ $1))
-```
+#+END_SRC
 
-See example.lisp
+See [[example.lisp]]
 
 ** Dependencies
 This library is at least tested on implementation listed below:
