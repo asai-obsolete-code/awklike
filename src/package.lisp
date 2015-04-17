@@ -9,7 +9,7 @@
   (:export
    #:$0
    #:awk
-   #:main
+   #:RUN
    #:BEGIN
    #:END
    #:UNBOUND-MATCHER
@@ -56,7 +56,7 @@
 (awk BEGIN)
 (awk END)
 
-(defun main (&optional (in-files '("-")))
+(defun run (&optional (in-files '("-")))
   (iter (for in in in-files)
         (match in
           ("-"
