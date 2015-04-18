@@ -56,14 +56,13 @@
 (awk BEGIN)
 (awk END)
 
-(defun run (&optional (in-files '("-")))
-  (iter (for in in in-files)
-        (match in
-          ("-"
-           (read-loop *standard-input*))
-          ((string)
-           (with-open-file (s in)
-             (read-loop s))))))
+(defun run (&optional (in-file "-"))
+  (ematch in-file
+    ("-"
+     (read-loop *standard-input*))
+    ((or (pathname) (string))
+     (with-open-file (s in-file)
+       (read-loop s)))))
 
 (defun read-loop (s)
   (funcall (symbol-matcher 'begin) nil)
