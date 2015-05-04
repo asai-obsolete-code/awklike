@@ -59,14 +59,14 @@
 (defun run (&optional (in-file "-"))
   (ematch in-file
     ("-"
-     (read-loop *standard-input*))
+     (read-loop))
     ((or (pathname) (string))
-     (with-open-file (s in-file)
-       (read-loop s)))))
+     (with-open-file (*standard-input* in-file)
+       (read-loop)))))
 
-(defun read-loop (s)
+(defun read-loop ()
   (funcall (symbol-matcher 'begin) nil)
-  (iter (for line = (read-line s nil nil))
+  (iter (for line = (read-line *standard-input* nil nil))
         (while line)
         (search-match line))
   (funcall (symbol-matcher 'end) nil))
