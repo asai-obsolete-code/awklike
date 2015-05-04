@@ -66,7 +66,7 @@
 
 (defun read-loop ()
   (funcall (symbol-matcher 'begin) nil)
-  (iter (for line = (read-line *standard-input* nil nil))
+  (iter (for line = (read-line *standard-input* nil nil t))
         (while line)
         (search-match line))
   (funcall (symbol-matcher 'end) nil))
